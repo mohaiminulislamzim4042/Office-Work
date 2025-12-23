@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | M I Zim</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * { box-sizing: border-box; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
+
+        /* Modes setup */
+        body.mode-color { --bg: #7f00ff; --text: #fff; --card: rgba(255,255,255,0.1); --particle: rgba(255,255,255,0.6); --accent: #00c6ff; }
+        body.mode-light { --bg: #f8f9fa; --text: #222; --card: #ffffff; --particle: rgba(0,0,0,0.15); --accent: #6a11cb; }
+        body.mode-dark { --bg: #0f0c29; --text: #fff; --card: rgba(0,0,0,0.4); --particle: rgba(255,255,255,0.4); --accent: #ff00cc; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            transition: 0.5s;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Particle Line */
+        .particle-line {
+            position: fixed; top: 40%; left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex; gap: 15px; z-index: -1;
+        }
+        .particle-line span {
+            width: 8px; height: 8px; background: var(--particle);
+            border-radius: 50%; animation: floatLine 2s ease-in-out infinite alternate;
+        }
+        @keyframes floatLine { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
+
+        /* Navbar */
+        .custom-nav {
+            background: rgba(0,0,0,0.2); backdrop-filter: blur(10px);
+            padding: 15px 0; position: sticky; top: 0; z-index: 1000;
+        }
+        .custom-nav a { color: var(--text) !important; text-decoration: none; margin-left: 20px; font-weight: 500; }
+
+        /* Cards */
+        .cosmic-card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+        .cosmic-card:hover { transform: translateY(-5px); }
+
+        .accent-text { color: var(--accent); font-weight: 600; }
+
+        .mode-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            padding: 10px 20px; border-radius: 30px; border: none;
+            background: var(--card); color: var(--text); z-index: 1001;
+        }
+
+        .ripple {
+            position: fixed; width: 10px; height: 10px; border-radius: 50%;
+            border: 2px solid white; pointer-events: none;
+            animation: ripple .6s forwards; z-index: 9999;
+        }
+        @keyframes ripple { to { transform: translate(-50%,-50%) scale(8); opacity: 0 } }
+        .profile-img-box {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+            border-radius: 50%; /* ছবি গোল করার জন্য */
+            border: 5px solid var(--accent); /* ছবির চারপাশে বর্ডার */
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .profile-img-box:hover {
+            transform: scale(1.05); /* মাউস নিলে একটু বড় হবে */
+        }
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ছবি যেন চ্যাপ্টা না হয়ে যায় */
+        }
+    </style>
+</head>
+<body class="mode-color">
+
+    <button class="mode-btn" onclick="toggleMode()">🌈 Mode</button>
+
+    <nav class="custom-nav">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="fs-3 fw-bold">M I Zim</a>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="about.html" class="fw-bold" style="color: var(--accent) !important;">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="particle-line" id="particleLine"></div>
+
+    <header class="container text-center py-5">
+        <h1 class="display-4 fw-bold">About <span class="accent-text">Me</span></h1>
+        <p class="lead opacity-75">আমার গল্প এবং কাজের দর্শন।</p>
+    </header>
+
+    <main class="container py-4">
+        
+
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+                <div class="cosmic-card">
+                    <h2 class="fw-bold mb-3">Who is <span class="accent-text">Zim</span>?</h2>
+                    <p>Ami Md. Mohaiminul Islam Zim. Ekjon passionate <span class="accent-text">Web Designer & Developer</span>. Ami Diploma in CST (Computer Science and Technology) korchi Rangpur Polytechnic Institute e.</p>
+                    <p>Chotto bela thekei technology r proti amar ekta alada attraction chhilo, r shei attraction thekei aaj ami web development e kaaj korchi.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="cosmic-card" style="border-left: 5px solid var(--accent);">
+                    <h2 class="fw-bold mb-3">My Vision</h2>
+                    <p>Amar mukhyo lokkho holo emon sob website toiri kora ja shudhu dekhtei shundor noy, borong user-friendly r super fast. Ami protiti project e modern UI/UX principles maintain korar chesta kori.</p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="cosmic-card text-center">
+                    <h2 class="fw-bold mb-4">Why Work With Me?</h2>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <h5 class="accent-text">Precision</h5>
+                            <p class="small opacity-75">Protiti pixel r code er line e thake nibhut kaaj.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="accent-text">Speed</h5>
+                            <p class="small opacity-75">Low-end device e o website cholbe makhon er moto smooth.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="accent-text">Support</h5>
+                            <p class="small opacity-75">Hosting theke shuru kore deployment porjonto paben full support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Particles
+        const line = document.getElementById("particleLine");
+        for(let i=0; i<15; i++){
+            const p = document.createElement("span");
+            p.style.animationDelay = (i * 0.1) + "s";
+            line.appendChild(p);
+        }
+
+        // Mode Toggle
+        let modeIndex = 0;
+        const modes = ["mode-color", "mode-light", "mode-dark"];
+        function toggleMode() {
+            modeIndex = (modeIndex + 1) % modes.length;
+            document.body.className = modes[modeIndex];
+        }
+
+        // Ripple
+        document.onclick = e => {
+            const r = document.createElement("div");
+            r.className = "ripple";
+            r.style.left = e.clientX + "px";
+            r.style.top = e.clientY + "px";
+            document.body.appendChild(r);
+            setTimeout(() => r.remove(), 600);
+        };
+    </script>
+</body>
+</html>
